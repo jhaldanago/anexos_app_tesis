@@ -1,11 +1,67 @@
-Abrir en consola cmd de manera local
-Ubicar en la ruta la carpeta donde se ubico el proyecto
+=========================================================
+APLICATIVO WEB INTELIGENTE DE CLASIFICACIÓN DE
+ENFERMEDADES OCULARES BASADO EN APRENDIZAJE PROFUNDO
+=========================================================
 
-Instalar requirements.txt
+Autor:
+Jhonathan Fernando Aldana Gonzales
 
-Ejecutar en consola: python app.py
+REQUISITOS
 
-La aplicación web correrá de manera local en:
+- Python 3.13 o superior
+- pip
+- Git (opcional, si se clona desde GitHub)
 
- * Running on http://127.0.0.1:5000
- * Running on http://192.168.100.33:5000
+1. CLONAR EL REPOSITORIO
+
+git clone [URL_DEL_REPOSITORIO]
+o descargar el proyecto como archivo ZIP desde GitHub.
+
+2. INGRESAR A LA CARPETA DEL PROYECTO
+
+cd anexos_app_tesis
+
+3. CREAR UN ENTORNO VIRTUAL (RECOMENDADO)
+
+Windows
+python -m venv venv
+Activar:
+venv\Scripts\activate
+
+Linux / macOS
+python3 -m venv venv
+Activar:
+source venv/bin/activate
+
+4. INSTALAR LAS DEPENDENCIAS
+
+pip install -r requirements.txt
+
+5. VERIFICAR EL MODELO
+
+El archivo del modelo entrenado debe encontrarse en:
+model/
+    model_resnet50_final.h5
+
+6. EJECUTAR LA APLICACIÓN
+
+python app.py
+
+7. ACCEDER DESDE EL NAVEGADOR
+
+Abrir:
+http://127.0.0.1:5000
+o
+http://192.168.100.33:5000
+
+NOTAS
+
+- El modelo ResNet50 tiene un tamaño aproximado de 210 MB, por lo que el primer inicio puede tardar algunos segundos mientras se carga en memoria.
+- Se recomienda utilizar imágenes de fondo de ojo en formato JPG, JPEG o PNG.
+- La aplicación fue desarrollada con fines de investigación y apoyo al diagnóstico, por lo que no sustituye la evaluación realizada por un especialista en oftalmología.
+
+
+CONTACTO:
+
+Correo: jhonathanaldang@gmail.com
+Github: Jhonathan Aldana Gonzales - jhaldanago
