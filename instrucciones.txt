@@ -1,0 +1,11 @@
+Abrir en consola cmd de manera local
+Ubicar en la ruta la carpeta donde se ubico el proyecto
+
+Instalar requirements.txt
+
+Ejecutar en consola: python app.py
+
+La aplicación web correrá de manera local en:
+
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.100.33:5000
