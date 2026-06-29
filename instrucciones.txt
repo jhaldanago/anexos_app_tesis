@@ -41,7 +41,7 @@ pip install -r requirements.txt
 
 El archivo del modelo entrenado debe encontrarse en:
 model/
-    model_resnet50_final.h5
+    modelo_resnet50_final.h5
 
 6. EJECUTAR LA APLICACIÓN
 
