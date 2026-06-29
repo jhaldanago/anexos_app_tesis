@@ -1,2 +1,2 @@
 Como el modelo ResNet50 pesa 210 MB, se comparte el enlace para descargalo:
-https://drive.google.com/file/d/1_lZwu7NHc2b1MqH5HLT6xC8ifhqstpCk/view?usp=sharing
+https://drive.google.com/file/d/1aNb5AvY6oeDC5ay6KBW4TkzcT5dKFyyq/view?usp=sharing
