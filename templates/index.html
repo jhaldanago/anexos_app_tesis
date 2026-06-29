@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+    Clasificación Inteligente de Enfermedades Oculares
+</title>
+
+<!-- CSS -->
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/header.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/hero.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/cards.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/results.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/responsive.css') }}">
+
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="header">
+
+
+<div class="header-container">
+
+    <img
+        src="https://www.unprg.edu.pe/univ/portal/documentos_s/imagen/escudo_act_ofic.png"
+        class="logo"
+        alt="UNPRG">
+
+    <div class="header-text">
+
+        <h1>
+            Aplicativo Inteligente de Clasificación
+            de Enfermedades Oculares
+        </h1>
+
+        
+
+        <div class="status-model">
+            <p>
+            Diagnóstico asistido mediante Deep Learning
+            </p>
+            <span class="pulse"></span>
+
+            Modelo ResNet50 Activo
+
+        </div>
+
+    </div>
+
+    <div class="header-spacer"></div>
+
+</div>
+
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+
+<div class="hero-content">
+
+    <span class="hero-tag">
+
+        Inteligencia Artificial Médica
+
+    </span>
+
+    <h2>
+
+        Clasificación Inteligente de
+        Enfermedades Oculares
+
+    </h2>
+
+    <p>
+
+        Analice imágenes de fondo de ojo mediante
+        Deep Learning para apoyar el diagnóstico clínico
+        y la detección temprana de patologías visuales.
+
+    </p>
+
+    <div class="hero-buttons">
+
+        <label
+            id="heroUploadBtn"
+            for="imageInput"
+            class="btn-primary hero-btn">
+
+            Cargar Imagen
+
+        </label>
+
+    </div>
+
+</div>
+
+<div class="hero-image">
+
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+
+</div>
+
+
+</section>
+
+<!-- MAIN -->
+
+<main id="mainContent" class="main">
+
+
+<div class="grid">
+
+    <!-- CARGA -->
+
+    <section class="card">
+
+        <h2>
+            Visualización de imagen de fondo de ojo
+        </h2>
+
+        <label
+            class="upload-box"
+            id="uploadBox">
+
+            <div class="upload-icon">
+                ⬆
+            </div>
+
+            <p class="upload-title">
+
+                Haz clic para subir una imagen
+
+            </p>
+
+            <p class="upload-subtitle">
+
+                PNG, JPG o JPEG
+
+            </p>
+
+            <input
+                type="file"
+                id="imageInput"
+                accept="image/*"
+                hidden>
+
+        </label>
+
+        <div
+            class="preview hidden"
+            id="previewContainer">
+
+            <img id="imagePreview">
+
+            <button
+                class="btn-clear"
+                id="clearBtn">
+
+                ✖
+
+            </button>
+
+        </div>
+
+        <div class="actions">
+
+            <button
+                id="predictBtn"
+                class="btn-primary actions-btn"
+                disabled>
+
+                <span id="predictText">
+
+                    Predecir Enfermedad
+
+                </span>
+
+                <div
+                    class="progress hidden"
+                    id="progress">
+
+                    <div
+                        class="progress-bar"
+                        id="progressBar">
+
+                    </div>
+
+                </div>
+
+            </button>
+
+            <button
+                id="resetBtn"
+                class="btn-secondary"
+                disabled>
+
+                Limpiar
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- RESULTADOS -->
+
+    <section class="card">
+
+        <h2>
+            Resultados del Análisis
+        </h2>
+
+        <!-- ESTADO VACIO -->
+
+        <div
+            class="empty"
+            id="emptyState">
+
+            <div class="empty-icon">
+
+                ⚠
+
+            </div>
+
+            <p>
+
+                Carga una imagen y presiona
+                "Predecir Enfermedad"
+
+            </p>
+
+        </div>
+
+        <!-- RESULTADOS POS PREDICCION -->
+
+        <div
+            class="results hidden"
+            id="results">
+
+            <!-- KPI -->
+
+            <div class="kpi-grid">
+
+                <div class="kpi-card">
+
+                    <span class="kpi-label">
+
+                        Precisión
+
+                    </span>
+
+                    <h2 id="confidenceValue">
+
+                        0%
+
+                    </h2>
+
+                </div>
+
+                <div class="kpi-card">
+
+                    <span class="kpi-label">
+
+                        Tiempo IA
+
+                    </span>
+
+                    <h2 id="inferenceTime">
+
+                        0.00 s
+
+                    </h2>
+
+                </div>
+
+                <div class="kpi-card">
+
+                    <span class="kpi-label">
+
+                        Modelo CNN
+
+                    </span>
+
+                    <h2>
+
+                        ResNet50
+
+                    </h2>
+
+                </div>
+
+            </div>
+
+            <!-- DIAGNOSTICO -->
+
+            <div class="main-diagnosis">
+
+                <div>
+
+                    <span>
+
+                        Diagnóstico Principal
+
+                    </span>
+
+                    <h2 id="bestDiagnosis"></h2>
+
+                    <div id="diseaseInfo"></div>
+
+                </div>
+
+            </div>
+
+            <!-- NIVEL DE RIESGO -->
+
+            <div
+                id="riskBadge"
+                class="risk-badge">
+
+                Riesgo
+
+            </div>
+
+            <!-- PROBABILIDADES -->
+
+            <div class="probability-section">
+
+                <h3>
+
+                    Probabilidades por Clase
+
+                </h3>
+                <h2></h2>
+                
+                <div id="predictions">
+
+                </div>
+
+            </div>
+
+            <!-- IMAGENES -->
+
+            <div class="analysis-grid">
+
+                <div class="analysis-card">
+
+                    <h3>
+
+                        Imagen Original
+
+                    </h3>
+
+                    <img id="originalImage">
+
+                </div>
+
+                <div class="analysis-card">
+
+                    <h3>
+
+                        Grad-CAM
+
+                    </h3>
+
+                    <img id="gradcamImage">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+</main>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+
+<p>
+
+    © 2026 - Todos los derechos reservados
+
+</p>
+
+<p>
+
+    Esta aplicación es una herramienta
+    de apoyo diagnóstico.
+
+</p>
+
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script
+src="{{ url_for('static', filename='js/upload.js') }}">
+</script>
+
+<script
+src="{{ url_for('static', filename='js/progress.js') }}">
+</script>
+
+<script
+src="{{ url_for('static', filename='js/prediction.js') }}">
+</script>
+
+<script
+src="{{ url_for('static', filename='js/main.js') }}">
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+/* =======================================================
+   TABLET
+======================================================= */
+
+@media (max-width:1024px){
+
+    .hero{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        padding:
+        180px 30px 60px;
+    }
+
+    .hero-content{
+
+        max-width:100%;
+    }
+
+    .hero-buttons{
+
+        justify-content:center;
+    }
+
+    .hero-image{
+
+        font-size:180px;
+    }
+
+    .analysis-grid{
+
+        grid-template-columns:1fr;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+    .header-container{
+
+        grid-template-columns:1fr;
+    }
+
+    .logo{
+
+        display:none;
+    }
+
+    .header-spacer{
+
+        display:none;
+    }
+
+    .header-text h1{
+
+        font-size:18px;
+    }
+
+    .hero{
+
+        padding:
+        160px 20px 50px;
+    }
+
+    .hero-content h2{
+
+        font-size:2.2rem;
+    }
+
+    .hero-content p{
+
+        font-size:1rem;
+    }
+
+    .hero-image{
+
+        font-size:120px;
+    }
+
+    .grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+
+        flex-direction:column;
+    }
+
+    .kpi-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .main-diagnosis{
+
+        flex-direction:column;
+
+        text-align:center;
+    }
+}
+
+/* MOBILE PEQUEÑO */
+
+@media (max-width:480px){
+
+    .card{
+
+        padding:18px;
+    }
+
+    .upload-box{
+
+        height:220px;
+    }
+
+    .preview{
+
+        height:220px;
+    }
+
+    .analysis-card img{
+
+        height:180px;
+    }
+
+    .hero-content h2{
+
+        font-size:1.8rem;
+    }
+}
